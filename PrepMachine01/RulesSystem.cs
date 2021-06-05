@@ -34,6 +34,28 @@ namespace PM
 
     }
 
+    
+    public enum ComparisonOperatorType
+    {
+        GT,
+        LT,
+        GE,
+        LE,
+        EQ,
+        NE
+    }
+
+    public enum OperandComparisonType
+    {
+        INT,
+        LONG,
+        DATE,
+        DECIMAL,
+        STRING,
+        BOOL
+    }
+
+
 
 
     public enum LabelType
