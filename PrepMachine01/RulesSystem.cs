@@ -81,7 +81,7 @@ namespace PM
 
 
 
-    public class LabelOfPrecessing
+    public class LabelOfProcessing
     {
         private bool _iAmActive;
 
