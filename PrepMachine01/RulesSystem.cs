@@ -19,7 +19,7 @@ namespace PM
 
     }
 
-
+/*
     public interface ILabelOfPrecessing
     {
         public LabelType getThisLabelType();
@@ -33,7 +33,7 @@ namespace PM
         public void setAsPassive();
 
     }
-
+*/
     
     public enum ComparisonOperatorType
     {
@@ -78,4 +78,107 @@ namespace PM
         RAW_DOCUMENT_NUMBER_COLUMN,
         RAW_ROW_SPLITTED_INTO_CELLS
     }
+
+
+
+    public class LabelOfPrecessing
+    {
+        private bool _iAmActive;
+
+        private long _rawLong;
+        private int _rawInt;
+        private string _rawString;
+        private DateTime _rawDateTime;
+        private decimal _rawDecimal;
+        private bool _rawBoolean;
+
+        private LabelType _labelType;
+
+        private OperandComparisonType _operandComparisonType;
+
+
+        public LabelType ThisLabelType  {  set { _labelType = value; }  get{ return _labelType;  } }
+
+
+        public string ValueAsString 
+        { 
+            set 
+            {
+                _operandComparisonType = OperandComparisonType.STRING;
+                _rawString = value; 
+            } 
+            get 
+            { 
+                if (_operandComparisonType == OperandComparisonType.STRING)  return _rawString;
+                return null;
+            } 
+        }
+        public long ValueAsLong 
+        { 
+            set 
+            {
+                _rawString = "" + value;
+                _operandComparisonType = OperandComparisonType.LONG;
+                _rawLong = value;
+            }
+            get 
+            {
+                return _rawLong;
+            }
+        }
+        public int ValueAsInt
+        { 
+            set 
+            {
+                _rawString = "" + value;
+                _operandComparisonType = OperandComparisonType.INT;
+                _rawInt = value;
+            }
+            get 
+            {
+                return _rawInt;
+            }
+        }
+        public DateTime ValueAsDate
+        {
+            set
+            {
+                _rawString = "" + value;
+                _operandComparisonType = OperandComparisonType.DATE;
+                _rawDateTime = value;
+            }
+            get
+            {
+                return _rawDateTime;
+            }
+        }
+        public decimal ValueAsDecimal
+        {
+            set
+            {
+                _rawString = "" + value;
+                _operandComparisonType = OperandComparisonType.DECIMAL;
+                _rawDecimal = value;
+            }
+            get
+            {
+                return _rawDecimal;
+            }
+        }
+        public bool ValueAsBool
+        {
+            set
+            {
+                _rawString = "" + value;
+                _operandComparisonType = OperandComparisonType.BOOL;
+                _rawBoolean = value;
+            }
+            get
+            {
+                return _rawBoolean;
+            }
+        }
+    }
 }
+
+
