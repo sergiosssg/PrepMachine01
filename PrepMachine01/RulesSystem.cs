@@ -19,29 +19,86 @@ namespace PM
 
     }
 
-    public interface ILabelOfPrecessing
+    
+    public enum ComparisonOperatorType
     {
-        public LabelType getThisLabelType();
-        public string getValueAsString();
-        public long getValueAsLong();
-        public int getValueAsInt();
-        public DateTime getValueAsDate();
-        public decimal getValueAsDecimal();
-        public bool getValueAsBool();
-        public bool isLabelActive();
-        public void setAsPassive();
-
+        GT,
+        LT,
+        GE,
+        LE,
+        EQ,
+        NE
     }
+
+    public enum OperandType
+    {
+        INT,
+        LONG,
+        DATE,
+        DECIMAL,
+        STRING,
+        BOOL,
+        FUZZY
+    }
+
+    public enum FuzzyMeasure
+    {
+        ZERO = 0,
+        TINY = 5,
+        WEAK = 10,
+        SMALLEST = 15,
+        SMALL = 20,
+        LOW = 25,
+        LESS_THEN = 30,
+        MODERATE_LOW_BOUNDARY = 35,
+        MIDDLE_LESS_TEN = 40,
+        MIDDLE_LESS_FIVE = 45,
+        MIDDLE = 50,
+        MIDDLE_GREATER_FIVE = 55,
+        MIDDLE_GREATER_TEN = 60,
+        MODERATE_UPPER_BOUNDARY = 65,
+        GREATER_THEN = 70,
+        HIGH = 75,
+        BIG = 80,
+        BIGGEST = 85,
+        STRONG = 90,
+        HUGE = 95,
+        ABSOLUTE = 100
+    }
+
+
+
+
 
     public enum LabelType
     {
-        OPERATOR_SOURCE_NAME, 
-        FIRST_PASS_INITIALIZED, 
+        OPERATOR_SOURCE_NAME_IN_PROCESSING,
+        OPERATOR_SOURCE_UKRTELECOM_REVEALED,
+        OPERATOR_SOURCE_KIEVSTAR_REVEALED,
+        OPERATOR_SOURCE_VODAFON_REVEALED,
+        OPERATOR_SOURCE_UKRTELECOM_PROCESSED,
+        OPERATOR_SOURCE_KIEVSTAR_PROCESSED,
+        OPERATOR_SOURCE_VODAFON_PROCESSED,
+
+
+        OPERATOR_SOURCE_UKRTELECOM_PROCESSED_SUCCESFULLY,
+        OPERATOR_SOURCE_KIEVSTAR_PROCESSED_SUCCESFULLY,
+        OPERATOR_SOURCE_VODAFON_PROCESSED_SUCCESFULLY,
+
+        OPERATOR_SOURCE_UKRTELECOM_PROCESSED_UNSUCCESFULLY,
+        OPERATOR_SOURCE_KIEVSTAR_PROCESSED_UNSUCCESFULLY,
+        OPERATOR_SOURCE_VODAFON_PROCESSED_UNSUCCESFULLY,
+
+
+        FIRST_PASS_INITIALIZED,
+        FIRST_PASS_PROCESSING,
         FIRST_PASS_PASSED,
         SECOND_PASS_INITIALIZED,
+        SECOND_PASS_PROCESSING,
         SECOND_PASS_PASSED,
-        THIRD_INITIALIZED,
-        THIRD_PASSED,
+        THIRD_PASS_INITIALIZED,
+        THIRD_PASS_PROCESSING,
+        THIRD_PASS_PASSED,
         PARSING_HEAD_OF_XLSX,
         PARCING_BODY_TABLE_OF_XLSX,
         PARCING_HEAD_OF_XLSX_INITIALIZED,
@@ -54,28 +111,9 @@ namespace PM
         RAW_ROW_SPLITTED_INTO_CELLS
     }
 
-    public enum ComparisonOperatorType
-    {
-        GT,
-        LT,
-        GE,
-        LE,
-        EQ,
-        NE
-    }
-
-    public enum OperandComparisonType
-    {
-        INT,
-        LONG,
-        DATE,
-        DECIMAL,
-        STRING,
-        BOOL
-    }
 
 
-    public class LabelOfPrecessing : ILabelOfPrecessing
+    public class LabelOfProcessing
     {
         private bool _iAmActive;
 
@@ -88,7 +126,7 @@ namespace PM
 
         private LabelType _labelType;
 
-        private OperandComparisonType _operandComparisonType;
+        private OperandType _operandComparisonType;
 
 
         public LabelType ThisLabelType  {  set { _labelType = value; }  get{ return _labelType;  } }
@@ -98,12 +136,12 @@ namespace PM
         { 
             set 
             {
-                _operandComparisonType = OperandComparisonType.STRING;
+                _operandComparisonType = OperandType.STRING;
                 _rawString = value; 
             } 
             get 
             { 
-                if (_operandComparisonType == OperandComparisonType.STRING)  return _rawString;
+                if (_operandComparisonType == OperandType.STRING)  return _rawString;
                 return null;
             } 
         }
@@ -112,7 +150,7 @@ namespace PM
             set 
             {
                 _rawString = "" + value;
-                _operandComparisonType = OperandComparisonType.LONG;
+                _operandComparisonType = OperandType.LONG;
                 _rawLong = value;
             }
             get 
@@ -125,7 +163,7 @@ namespace PM
             set 
             {
                 _rawString = "" + value;
-                _operandComparisonType = OperandComparisonType.INT;
+                _operandComparisonType = OperandType.INT;
                 _rawInt = value;
             }
             get 
@@ -138,7 +176,7 @@ namespace PM
             set
             {
                 _rawString = "" + value;
-                _operandComparisonType = OperandComparisonType.DATE;
+                _operandComparisonType = OperandType.DATE;
                 _rawDateTime = value;
             }
             get
@@ -151,7 +189,7 @@ namespace PM
             set
             {
                 _rawString = "" + value;
-                _operandComparisonType = OperandComparisonType.DECIMAL;
+                _operandComparisonType = OperandType.DECIMAL;
                 _rawDecimal = value;
             }
             get
@@ -164,7 +202,7 @@ namespace PM
             set
             {
                 _rawString = "" + value;
-                _operandComparisonType = OperandComparisonType.BOOL;
+                _operandComparisonType = OperandType.BOOL;
                 _rawBoolean = value;
             }
             get
@@ -172,49 +210,7 @@ namespace PM
                 return _rawBoolean;
             }
         }
-
-
-
-
-
-
-        public bool isLabelActive()  {  return _iAmActive;  }
-
-        public void setAsPassive()  {  _iAmActive = false;  }
-
-        LabelType ILabelOfPrecessing.getThisLabelType()
-        {
-            throw new NotImplementedException();
-        }
-
-        bool ILabelOfPrecessing.getValueAsBool()
-        {
-            throw new NotImplementedException();
-        }
-
-        DateTime ILabelOfPrecessing.getValueAsDate()
-        {
-            throw new NotImplementedException();
-        }
-
-        decimal ILabelOfPrecessing.getValueAsDecimal()
-        {
-            throw new NotImplementedException();
-        }
-
-        int ILabelOfPrecessing.getValueAsInt()
-        {
-            throw new NotImplementedException();
-        }
-
-        long ILabelOfPrecessing.getValueAsLong()
-        {
-            throw new NotImplementedException();
-        }
-
-        string ILabelOfPrecessing.getValueAsString()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
+
+

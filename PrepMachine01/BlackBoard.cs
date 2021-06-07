@@ -6,24 +6,27 @@ namespace PM
 {
     public class BlackBoard
     {
-        private IDictionary<bool, ILabelOfPrecessing> labelsSortedByAsProcessed;
+        private IDictionary<bool, LabelOfProcessing> labelsSortedByAsProcessed;
 
 
         public BlackBoard()
         {
-            labelsSortedByAsProcessed =  new Dictionary<bool, ILabelOfPrecessing>();
+            labelsSortedByAsProcessed =  new Dictionary<bool, LabelOfProcessing>();
         }
 
 
-        public void addLabel(ILabelOfPrecessing newLabelOfProcessing)
+        public void addLabel(LabelOfProcessing newLabelOfProcessing)
         {
 
         }
 
-        public bool containLabel(ILabelOfPrecessing labelOfProcessing)
+        public bool containsLabel(LabelOfProcessing labelOfProcessing)
         {
-
             return false;
         }
+
+
+
+
     }
 }
