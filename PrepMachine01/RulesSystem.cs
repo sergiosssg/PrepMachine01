@@ -250,6 +250,17 @@ namespace PM
                 _rawString = "" + value;
                 _operandComparisonType = OperandType.BOOL;
                 _rawBoolean = value;
+
+                if (value)
+                {
+                    _logicCombo.fuzzyLogic = FuzzyMeasure.DEFINITE_TRUE;
+                }
+                else
+                {
+                    _logicCombo.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
+                }
+                _logicCombo.booleanLogic = value;
+
             }
             get
             {
