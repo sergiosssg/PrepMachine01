@@ -147,7 +147,7 @@ namespace PM
 
         public LabelOfProcessing()
         {
-            _iAmActive = true;
+            _iAmActive = false;
             _rawLong = 0L;
             _rawInt = 0;
             _rawString = string.Empty;
@@ -158,11 +158,24 @@ namespace PM
             _logicCombo.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
         }
 
-
         public LabelOfProcessing(LabelType labelType) : this()
         {
             ThisLabelType = labelType;
         }
+
+        public bool AmIActive
+        {
+            set 
+            {
+                _iAmActive = value;
+            }
+            get 
+            {
+                return _iAmActive;
+            }
+        }
+
+
 
 
         public string ValueAsString 
