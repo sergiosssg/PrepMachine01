@@ -29,7 +29,9 @@ namespace PM
         GE,
         LE,
         EQ,
-        NE
+        NE,
+        CONTAINS,
+        NOTCONTAINS
     }
 
     public enum OperandType
@@ -76,6 +78,8 @@ namespace PM
         public bool booleanLogic;
         public FuzzyMeasure fuzzyLogic;
     }
+
+
 
 
 
