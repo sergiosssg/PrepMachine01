@@ -6,7 +6,9 @@ namespace PM
 {
     public interface IRule
     {
-
+        IConditionRule[] getConditionsOfRule();
+        bool isRuleActive();
+        IActionRule[] getActionsOfRule();
     }
 
     public interface IConditionRule
