@@ -6,13 +6,16 @@ namespace PM
 {
     public interface IRule
     {
-        IConditionRule[] getConditionsOfRule();
-        bool isRuleActive();
-        IActionRule[] getActionsOfRule();
+        public IConditionRule[] getConditionsOfRule();
+        public bool isRuleActive();
+        public IActionRule[] getActionsOfRule();
     }
 
     public interface IConditionRule
     {
+        public ComparisonOperatorType getComparisonOperatorType();
+        public OperandType getOperandType();
+        public LogicCombo getLogicCombo();
 
     }
 
