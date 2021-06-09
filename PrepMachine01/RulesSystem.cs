@@ -4,6 +4,35 @@ using System.Text;
 
 namespace PM
 {
+
+    public class ActionInRule
+    {
+        private Func<LabelOfProcessing> _actionAddingLabel;
+        private Action _actionSilent;
+        private List<LabelOfProcessing> _lresultLabelOfProcessings;
+
+        public bool IAmLabelAdder => _actionAddingLabel != null;
+        public bool IAmSilent => _actionSilent != null;
+
+        public ActionInRule()
+        {
+            _actionAddingLabel = null; _actionSilent = null;
+            _lresultLabelOfProcessings = new List<LabelOfProcessing>();
+        }
+
+        public Func<LabelOfProcessing> ActionAddingLabel
+        {
+            get => _actionAddingLabel;
+            set => _actionAddingLabel += value;
+        }
+
+        public Action ActionSilent
+        {
+            get => _actionSilent;
+            set => _actionSilent += value;
+        }
+    }
+
     public interface IRule
     {
         public IConditionRule[] getConditionsOfRule();
