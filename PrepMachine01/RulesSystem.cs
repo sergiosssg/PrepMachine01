@@ -7,20 +7,23 @@ namespace PM
 
     public class ActionInRule
     {
-        private Func<LabelOfProcessing> _actionAddingLabel;
+        private bool _isAccomplished;
+        private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
         private Action _actionSilent;
         private List<LabelOfProcessing> _lresultLabelOfProcessings;
 
         public bool IAmLabelAdder => _actionAddingLabel != null;
         public bool IAmSilent => _actionSilent != null;
+        public bool IAmAcomplished => _isAccomplished;
 
         public ActionInRule()
         {
+            _isAccomplished = false;
             _actionAddingLabel = null; _actionSilent = null;
             _lresultLabelOfProcessings = new List<LabelOfProcessing>();
         }
 
-        public Func<LabelOfProcessing> ActionAddingLabel
+        public Func<List<LabelOfProcessing>, List<LabelOfProcessing>> ActionAddingLabel
         {
             get => _actionAddingLabel;
             set => _actionAddingLabel += value;
@@ -31,6 +34,17 @@ namespace PM
             get => _actionSilent;
             set => _actionSilent += value;
         }
+        public List<LabelOfProcessing> doAction()
+        {
+            if (IAmLabelAdder) _actionAddingLabel(_lresultLabelOfProcessings);
+            if (IAmSilent) _actionSilent();
+
+
+            _isAccomplished = true;
+            return _lresultLabelOfProcessings;
+        }
+
+        public void reset() => _isAccomplished = false;
     }
 
     public interface IRule
