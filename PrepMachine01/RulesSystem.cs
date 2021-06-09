@@ -153,7 +153,7 @@ namespace PM
         private OperandType _operandComparisonType;
 
 
-        public LabelType ThisLabelType  {  set { _labelType = value; }  get{ return _labelType;  } }
+        public LabelType ThisLabelType  {  set { _labelType = value; }  get => _labelType; }
 
         public LabelOfProcessing()
         {
@@ -168,22 +168,9 @@ namespace PM
             _logicCombo.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
         }
 
-        public LabelOfProcessing(LabelType labelType) : this()
-        {
-            ThisLabelType = labelType;
-        }
+        public LabelOfProcessing(LabelType labelType) : this() => ThisLabelType = labelType;
 
-        public bool AmIActive
-        {
-            set 
-            {
-                _iAmActive = value;
-            }
-            get 
-            {
-                return _iAmActive;
-            }
-        }
+        public bool AmIActive   {  set { _iAmActive = value;  }  get => _iAmActive;  }
 
 
 
@@ -209,10 +196,7 @@ namespace PM
                 _operandComparisonType = OperandType.LONG;
                 _rawLong = value;
             }
-            get 
-            {
-                return _rawLong;
-            }
+            get =>  _rawLong;
         }
         public int ValueAsInt
         { 
@@ -222,10 +206,7 @@ namespace PM
                 _operandComparisonType = OperandType.INT;
                 _rawInt = value;
             }
-            get 
-            {
-                return _rawInt;
-            }
+            get =>  _rawInt;
         }
         public DateTime ValueAsDate
         {
@@ -235,10 +216,7 @@ namespace PM
                 _operandComparisonType = OperandType.DATE;
                 _rawDateTime = value;
             }
-            get
-            {
-                return _rawDateTime;
-            }
+            get  =>  _rawDateTime;
         }
         public decimal ValueAsDecimal
         {
@@ -248,10 +226,7 @@ namespace PM
                 _operandComparisonType = OperandType.DECIMAL;
                 _rawDecimal = value;
             }
-            get
-            {
-                return _rawDecimal;
-            }
+            get  =>  _rawDecimal;
         }
         public bool ValueAsBool
         {
@@ -272,10 +247,7 @@ namespace PM
                 _logicCombo.booleanLogic = value;
 
             }
-            get
-            {
-                return _rawBoolean;
-            }
+            get  =>  _rawBoolean;
         }
     }
 }
