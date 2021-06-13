@@ -5,7 +5,7 @@ using System.Text;
 namespace PM
 {
 
-    public class ActionInRule
+    public class ActionInRule : IActionRule
     {
         private bool _isAccomplished;
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
