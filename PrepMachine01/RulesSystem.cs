@@ -62,6 +62,9 @@ namespace PM
         private bool _isAccomplished;
         private Action _action;
 
+
+        public bool IAmValidAction => _action != null;
+
         public SimpleVoidActionInRule()
         {
             _isAccomplished = false;
@@ -69,6 +72,22 @@ namespace PM
         }
 
 
+        public Action ActionSilent
+        {
+            get => _action;
+            set => _action += value;
+        }
+
+
+        public bool doAction()
+        {
+            bool retResult = false;
+            if (IAmValidAction) { _action(); retResult = true; }
+
+
+            _isAccomplished = true;
+            return retResult;
+        }
 
 
         public void reset() => _isAccomplished = false;
