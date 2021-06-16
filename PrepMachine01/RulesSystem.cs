@@ -34,17 +34,26 @@ namespace PM
             get => _actionSilent;
             set => _actionSilent += value;
         }
-        public List<LabelOfProcessing> doAction()
+        public bool doAction()
         {
-            if (IAmLabelAdder) _actionAddingLabel(_lresultLabelOfProcessings);
-            if (IAmSilent) _actionSilent();
+            bool retResult = false;
+            if (IAmLabelAdder) { _actionAddingLabel(_lresultLabelOfProcessings); retResult = true; }
+            if (IAmSilent) { _actionSilent(); retResult = true; }
 
 
             _isAccomplished = true;
-            return _lresultLabelOfProcessings;
+            return retResult;
         }
 
-        public void reset() => _isAccomplished = false;
+        public bool getResult(out List<LabelOfProcessing> lsLabelOfProcessings)
+        {
+
+
+            lsLabelOfProcessings = _lresultLabelOfProcessings;
+            return _isAccomplished;
+        }
+
+        public void reset()  { _isAccomplished = false; _lresultLabelOfProcessings.Clear(); }
     }
 
 
