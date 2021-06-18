@@ -5,6 +5,13 @@ using System.Text;
 namespace PM
 {
 
+    public abstract class ActionAbstract : IActionRule
+    {
+        protected bool _isAccomplished;
+
+        public abstract bool doAction();
+    }
+
     public class ActionInRule : IActionRule
     {
         private bool _isAccomplished;
@@ -55,6 +62,7 @@ namespace PM
 
         public void reset()  { _isAccomplished = false; _lresultLabelOfProcessings.Clear(); }
     }
+
 
 
     public class SimpleVoidActionInRule : IActionRule
