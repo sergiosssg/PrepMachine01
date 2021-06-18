@@ -10,6 +10,7 @@ namespace PM
         protected bool _isAccomplished;
 
         public abstract bool doAction();
+        public void reset() => _isAccomplished = false;
     }
 
     public class ActionInRule : IActionRule
@@ -122,6 +123,7 @@ namespace PM
     public interface IActionRule
     {
         public bool doAction();
+        public void reset();
     }
 
     
