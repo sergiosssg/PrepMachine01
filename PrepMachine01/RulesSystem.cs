@@ -132,7 +132,13 @@ namespace PM
         public bool getLabelsResult(out List<LabelOfProcessing> lsLabelOfProcessings);
     }
 
-    
+    public interface IResultOfActionRule
+    {
+        public void reset();
+    }
+
+
+
     public enum ComparisonOperatorType
     {
         GT,
