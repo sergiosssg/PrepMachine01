@@ -74,6 +74,8 @@ namespace PM
 
         public bool IAmValidAction => _action != null;
 
+        public bool IAmAcomplished => _isAccomplished;
+
         public SimpleActionInRule()
         {
             _isAccomplished = false;
