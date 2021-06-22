@@ -13,21 +13,18 @@ namespace PM
         public void reset() => _isAccomplished = false;
     }
 
-    public class ActionInRule : IActionRule, IResultOfActionRuleForBlackBoard, IResultOfActionRule
+    public class ActionInRule : SimpleActionInRule, IActionRule, IResultOfActionRuleForBlackBoard, IResultOfActionRule
     {
-        private bool _isAccomplished;
+
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
-        private Action _actionSilent;
         private List<LabelOfProcessing> _lresultLabelOfProcessings;
 
         public bool IAmLabelAdder => _actionAddingLabel != null;
-        public bool IAmSilent => _actionSilent != null;
-        public bool IAmAcomplished => _isAccomplished;
+        public bool IAmSilent => base.IAmValidAction;
 
-        public ActionInRule()
+        public ActionInRule() : base()
         {
-            _isAccomplished = false;
-            _actionAddingLabel = null; _actionSilent = null;
+            _actionAddingLabel = null;
             _lresultLabelOfProcessings = new List<LabelOfProcessing>();
         }
 
@@ -37,19 +34,18 @@ namespace PM
             set => _actionAddingLabel += value;
         }
 
-        public Action ActionSilent
+        new public Action ActionSilent
         {
-            get => _actionSilent;
-            set => _actionSilent += value;
+            get => base.ActionSilent;
+            set => base.ActionSilent += value;
         }
-        public bool doAction()
+        new public bool doAction()
         {
             bool retResult = false;
             if (IAmLabelAdder) { _actionAddingLabel(_lresultLabelOfProcessings); retResult = true; }
-            if (IAmSilent) { _actionSilent(); retResult = true; }
+            if ( base.IAmValidAction) { base.doAction(); retResult = true; }
 
 
-            _isAccomplished = true;
             return retResult;
         }
 
@@ -61,7 +57,7 @@ namespace PM
             return _isAccomplished;
         }
 
-        public void reset()  { _isAccomplished = false; _lresultLabelOfProcessings.Clear(); }
+        new public void reset()  {  base.reset(); _lresultLabelOfProcessings.Clear(); }
     }
 
 
