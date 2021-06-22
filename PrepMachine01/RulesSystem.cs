@@ -13,7 +13,7 @@ namespace PM
         public void reset() => _isAccomplished = false;
     }
 
-    public class ActionInRule : IActionRule, IResultOfActionRuleForBlackBoard
+    public class ActionInRule : IActionRule, IResultOfActionRuleForBlackBoard, IResultOfActionRule
     {
         private bool _isAccomplished;
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
@@ -66,7 +66,7 @@ namespace PM
 
 
 
-    public class SimpleVoidActionInRule : IActionRule
+    public class SimpleVoidActionInRule : IActionRule, IResultOfActionRule
     {
         private bool _isAccomplished;
         private Action _action;
@@ -123,7 +123,6 @@ namespace PM
     public interface IActionRule
     {
         public bool doAction();
-        public void reset();
     }
 
 
