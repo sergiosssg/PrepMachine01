@@ -13,7 +13,7 @@ namespace PM
         public void reset() => _isAccomplished = false;
     }
 
-    public class ActionInRule : IActionRule, IResultOfActionRuleInBlackBoard
+    public class ActionInRule : IActionRule, IResultOfActionRuleForBlackBoard
     {
         private bool _isAccomplished;
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
@@ -127,7 +127,7 @@ namespace PM
     }
 
 
-    public interface IResultOfActionRuleInBlackBoard
+    public interface IResultOfActionRuleForBlackBoard
     {
         public bool getLabelsResult(out List<LabelOfProcessing> lsLabelOfProcessings);
     }
