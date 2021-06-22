@@ -66,15 +66,15 @@ namespace PM
 
 
 
-    public class SimpleVoidActionInRule : IActionRule, IResultOfActionRule
+    public class SimpleActionInRule : IActionRule, IResultOfActionRule
     {
         private bool _isAccomplished;
-        private Action _action;
+        protected Action _action;
 
 
         public bool IAmValidAction => _action != null;
 
-        public SimpleVoidActionInRule()
+        public SimpleActionInRule()
         {
             _isAccomplished = false;
             _action = null;
