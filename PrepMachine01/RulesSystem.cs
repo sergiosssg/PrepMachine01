@@ -68,7 +68,7 @@ namespace PM
 
     public class SimpleActionInRule : IActionRule, IResultOfActionRule
     {
-        private bool _isAccomplished;
+        protected bool _isAccomplished;
         protected Action _action;
 
 
