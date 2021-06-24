@@ -93,6 +93,16 @@ namespace PM
         COMBYLOGIC
     }
 
+
+    public enum ActionRuleType
+    {
+        EMPTY_ACTION,
+        LABEL_ACTION,
+        REGISTR_ACTION,
+        COMPLEX_ACTION
+    }
+
+
     public enum FuzzyMeasure
     {
         DEFINITE_FALSE = 0,
