@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    class Register
+    public class Register
     {
         public string OperatorName
         {

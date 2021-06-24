@@ -5,21 +5,26 @@ using System.Text;
 namespace PM
 {
 
-    public class ActionInRule : IActionRule
+    public abstract class ActionAbstract : IActionRule
     {
-        private bool _isAccomplished;
+        protected bool _isAccomplished;
+
+        public abstract bool doAction();
+        public void reset() => _isAccomplished = false;
+    }
+
+    public class ActionInRule : SimpleActionInRule, IActionRule, IResultOfActionRuleForBlackBoard, IResultOfActionRule
+    {
+
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
-        private Action _actionSilent;
         private List<LabelOfProcessing> _lresultLabelOfProcessings;
 
         public bool IAmLabelAdder => _actionAddingLabel != null;
-        public bool IAmSilent => _actionSilent != null;
-        public bool IAmAcomplished => _isAccomplished;
+        public bool IAmSilent => base.IAmValidAction;
 
-        public ActionInRule()
+        public ActionInRule() : base()
         {
-            _isAccomplished = false;
-            _actionAddingLabel = null; _actionSilent = null;
+            _actionAddingLabel = null;
             _lresultLabelOfProcessings = new List<LabelOfProcessing>();
         }
 
@@ -29,23 +34,73 @@ namespace PM
             set => _actionAddingLabel += value;
         }
 
+        new public Action ActionSilent
+        {
+            get => base.ActionSilent;
+            set => base.ActionSilent += value;
+        }
+        new public bool doAction()
+        {
+            bool retResult = false;
+            if (IAmLabelAdder) { _actionAddingLabel(_lresultLabelOfProcessings); retResult = true; }
+            if ( base.IAmValidAction) { base.doAction(); retResult = true; }
+
+
+            return retResult;
+        }
+
+        public bool getLabelsResult(out List<LabelOfProcessing> lsLabelOfProcessings)
+        {
+
+
+            lsLabelOfProcessings = _lresultLabelOfProcessings;
+            return _isAccomplished;
+        }
+
+        new public void reset()  {  base.reset(); _lresultLabelOfProcessings.Clear(); }
+    }
+
+
+
+    public class SimpleActionInRule : IActionRule, IResultOfActionRule
+    {
+        protected bool _isAccomplished;
+        protected Action _action;
+
+
+        public bool IAmValidAction => _action != null;
+
+        public bool IAmAcomplished => _isAccomplished;
+
+        public SimpleActionInRule()
+        {
+            _isAccomplished = false;
+            _action = null;
+        }
+
+
         public Action ActionSilent
         {
-            get => _actionSilent;
-            set => _actionSilent += value;
+            get => _action;
+            set => _action += value;
         }
-        public List<LabelOfProcessing> doAction()
+
+
+        public bool doAction()
         {
-            if (IAmLabelAdder) _actionAddingLabel(_lresultLabelOfProcessings);
-            if (IAmSilent) _actionSilent();
+            bool retResult = false;
+            if (IAmValidAction) { _action(); retResult = true; }
 
 
             _isAccomplished = true;
-            return _lresultLabelOfProcessings;
+            return retResult;
         }
+
 
         public void reset() => _isAccomplished = false;
     }
+
+
 
     public interface IRule
     {
@@ -65,10 +120,22 @@ namespace PM
 
     public interface IActionRule
     {
-
+        public bool doAction();
     }
 
-    
+
+    public interface IResultOfActionRuleForBlackBoard
+    {
+        public bool getLabelsResult(out List<LabelOfProcessing> lsLabelOfProcessings);
+    }
+
+    public interface IResultOfActionRule
+    {
+        public void reset();
+    }
+
+
+
     public enum ComparisonOperatorType
     {
         GT,
