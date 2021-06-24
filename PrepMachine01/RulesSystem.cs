@@ -9,6 +9,8 @@ namespace PM
     {
         protected bool _isAccomplished;
 
+        public bool IAmAcomplished => _isAccomplished;
+
         public abstract bool doAction();
         public void reset() => _isAccomplished = false;
     }
@@ -62,15 +64,12 @@ namespace PM
 
 
 
-    public class SimpleActionInRule : IActionRule, IResultOfActionRule
+    public class SimpleActionInRule :  ActionAbstract, IActionRule, IResultOfActionRule
     {
-        protected bool _isAccomplished;
         protected Action _action;
 
 
         public bool IAmValidAction => _action != null;
-
-        public bool IAmAcomplished => _isAccomplished;
 
         public SimpleActionInRule()
         {
@@ -92,12 +91,9 @@ namespace PM
             if (IAmValidAction) { _action(); retResult = true; }
 
 
-            _isAccomplished = true;
+            base._isAccomplished = true;
             return retResult;
         }
-
-
-        public void reset() => _isAccomplished = false;
     }
 
 
