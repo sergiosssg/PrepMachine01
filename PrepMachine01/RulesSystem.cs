@@ -85,7 +85,7 @@ namespace PM
         }
 
 
-        public bool doAction()
+        override public bool doAction()
         {
             bool retResult = false;
             if (IAmValidAction) { _action(); retResult = true; }
@@ -206,6 +206,8 @@ namespace PM
 
     public enum LabelType
     {
+        EMPTY_LABEL,
+
         OPERATOR_SOURCE_NAME_IN_PROCESSING,
 
         OPERATOR_SOURCE_UKRTELECOM_REVEALED,
