@@ -12,19 +12,18 @@ namespace PM
         public bool IAmAcomplished => _isAccomplished;
 
         public abstract bool doAction();
+
+        public abstract ActionRuleType getActionRuleType();
+
         public void reset() => _isAccomplished = false;
     }
 
-    public class LabelActionInRule : SimpleActionInRule, IActionRule, IResultOfActionRuleForBlackBoard, IResultOfActionRule
+    public class LabelActionInRule : ActionAbstract, IActionRule, IResultOfActionRuleForBlackBoard, IResultOfActionRule
     {
-
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
         private List<LabelOfProcessing> _lresultLabelOfProcessings;
 
-        public bool IAmLabelAdder => _actionAddingLabel != null;
-        public bool IAmSilent => base.IAmValidAction;
-
-        public LabelActionInRule() : base()
+        public LabelActionInRule()
         {
             _actionAddingLabel = null;
             _lresultLabelOfProcessings = new List<LabelOfProcessing>();
@@ -36,20 +35,20 @@ namespace PM
             set => _actionAddingLabel += value;
         }
 
-        new public Action ActionSilent
-        {
-            get => base.ActionSilent;
-            set => base.ActionSilent += value;
-        }
-        new public bool doAction()
+        override public bool doAction()
         {
             bool retResult = false;
-            if (IAmLabelAdder) { _actionAddingLabel(_lresultLabelOfProcessings); retResult = true; }
-            if ( base.IAmValidAction) { base.doAction(); retResult = true; }
+            if (_actionAddingLabel != null) { _actionAddingLabel(_lresultLabelOfProcessings); retResult = true; }
 
 
             return retResult;
         }
+
+        override public ActionRuleType getActionRuleType()
+        {
+            return ActionRuleType.LABEL_ACTION;
+        }
+
 
         public bool getLabelsResult(out List<LabelOfProcessing> lsLabelOfProcessings)
         {
@@ -94,6 +93,11 @@ namespace PM
             base._isAccomplished = true;
             return retResult;
         }
+
+        public override ActionRuleType getActionRuleType()
+        {
+            return ActionRuleType.EMPTY_ACTION;
+        }
     }
 
 
@@ -117,6 +121,8 @@ namespace PM
     public interface IActionRule
     {
         public bool doAction();
+
+        public ActionRuleType getActionRuleType();
     }
 
 
