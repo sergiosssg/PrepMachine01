@@ -63,6 +63,12 @@ namespace PM
 
 
 
+    class RegisterActionInRule
+    {
+
+    }
+
+
     public class SimpleActionInRule :  ActionAbstract, IActionRule, IResultOfActionRule
     {
         protected Action _action;
