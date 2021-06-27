@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PM
 {
-    public class Register
+    public class RegisterRecord
     {
-
         public string OperatorName
         {
             get; set;
         }
-
 
         public int NumberOfPass
         {
@@ -32,7 +28,7 @@ namespace PM
         {
             get; set;
         }
-        
+
         public int NumberOfColumnInSourceFileOfInputData
         {
             get; set;
@@ -61,4 +57,5 @@ namespace PM
             get; set;
         }
     }
+
 }
