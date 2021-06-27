@@ -35,7 +35,7 @@ namespace PM
             set => _actionAddingLabel += value;
         }
 
-        override public bool doAction()
+        public override bool doAction()
         {
             bool retResult = false;
             if (_actionAddingLabel != null) { _actionAddingLabel(_lresultLabelOfProcessings); retResult = true; }
@@ -63,9 +63,19 @@ namespace PM
 
 
 
-    class RegisterActionInRule
+    public class RegisterActionInRule : ActionAbstract, IActionRule
     {
+        public override bool doAction()
+        {
+            bool retResult = false;
 
+            return retResult;
+        }
+
+        override public ActionRuleType getActionRuleType()
+        {
+            return ActionRuleType.REGISTR_ACTION;
+        }
     }
 
 
