@@ -13,12 +13,16 @@ namespace PM
             }
             RegisterRecord comparedObject = (RegisterRecord)obj;
             if( this.OperatorName != comparedObject.OperatorName || this.TypeOfData != comparedObject.TypeOfData ||
-                this.NumberOfPass != comparedObject.NumberOfPass || this.NettoData != comparedObject.NettoData || 
-                this.RawData != comparedObject.RawData)
+                this.NumberOfPass != comparedObject.NumberOfPass )
             {
                 return false;
             }
-            return true;
+            if(( this.NettoData != string.Empty && comparedObject.NettoData != string.Empty ) &&
+                 this.NettoData.Equals(comparedObject.NettoData))
+            {
+                return true;
+            }
+            return false;
         }
 
 
