@@ -4,6 +4,20 @@ namespace PM
 {
     public class RegisterRecord
     {
+
+        public override bool Equals(object obj)
+        {
+            return false;
+        }
+
+
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+
+
         public string OperatorName
         {
             get; set;
