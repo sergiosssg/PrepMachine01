@@ -7,7 +7,18 @@ namespace PM
 
         public override bool Equals(object obj)
         {
-            return false;
+            if(obj == null || obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+            RegisterRecord comparedObject = (RegisterRecord)obj;
+            if( this.OperatorName != comparedObject.OperatorName || this.TypeOfData != comparedObject.TypeOfData ||
+                this.NumberOfPass != comparedObject.NumberOfPass || this.NettoData != comparedObject.NettoData || 
+                this.RawData != comparedObject.RawData)
+            {
+                return false;
+            }
+            return true;
         }
 
 
