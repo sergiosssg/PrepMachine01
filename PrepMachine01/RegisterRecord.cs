@@ -46,6 +46,9 @@ namespace PM
 
         public override int GetHashCode()
         {
+
+            this.TypeOfData.GetHashCode();
+
             return 0;
         }
 
