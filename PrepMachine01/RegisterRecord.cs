@@ -53,6 +53,16 @@ namespace PM
         }
 
 
+        /**
+         *  unique provided by date estamp and MAC addres then ...
+         * 
+         */
+        public long KODE
+        {
+            get; set;
+        }
+
+
 
         public string OperatorName
         {
