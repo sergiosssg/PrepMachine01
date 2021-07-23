@@ -52,16 +52,6 @@ namespace PM
             return 0;
         }
 
-        long IStorage.getHashOfHostMachine()
-        {
-            throw new NotImplementedException();
-        }
-
-        long IStorage.getHastOfDateTimeStamp()
-        {
-            throw new NotImplementedException();
-        }
-
         bool IStorage.Store(string where)
         {
             throw new NotImplementedException();

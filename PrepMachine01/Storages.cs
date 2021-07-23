@@ -6,10 +6,6 @@ namespace PM
 {
     public interface IStorage
     {
-        public long getHashOfHostMachine();
-
-        public long getHastOfDateTimeStamp();
-
         public bool Store(string where);
 
         public bool Load(string whereFrom);
