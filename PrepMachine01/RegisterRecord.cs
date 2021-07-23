@@ -2,7 +2,7 @@
 
 namespace PM
 {
-    public class RegisterRecord : IStorage
+    public class RegisterRecord
     {
 
         public override bool Equals(object obj)
@@ -50,31 +50,6 @@ namespace PM
             this.TypeOfData.GetHashCode();
 
             return 0;
-        }
-
-        bool IStorage.Store(string where)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IStorage.Load(string whereFrom)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IStorage.Stored()
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IStorage.Loaded()
-        {
-            throw new NotImplementedException();
-        }
-
-        int IStorage.Amount()
-        {
-            throw new NotImplementedException();
         }
 
 

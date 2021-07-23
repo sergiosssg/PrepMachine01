@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public class Register
+    public class Register : IStorage
     {
         private Dictionary<long, RegisterRecord> _records;
 
@@ -20,6 +20,31 @@ namespace PM
         {
 
             return true;
+        }
+
+        int IStorage.Amount()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Load(string whereFrom)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Loaded()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Store(string where)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Stored()
+        {
+            throw new NotImplementedException();
         }
     }
 }
