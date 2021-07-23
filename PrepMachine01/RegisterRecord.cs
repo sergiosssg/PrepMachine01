@@ -2,7 +2,7 @@
 
 namespace PM
 {
-    public class RegisterRecord
+    public class RegisterRecord : IStorage
     {
 
         public override bool Equals(object obj)
@@ -50,6 +50,41 @@ namespace PM
             this.TypeOfData.GetHashCode();
 
             return 0;
+        }
+
+        long IStorage.getHashOfHostMachine()
+        {
+            throw new NotImplementedException();
+        }
+
+        long IStorage.getHastOfDateTimeStamp()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Store(string where)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Load(string whereFrom)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Stored()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IStorage.Loaded()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IStorage.Amount()
+        {
+            throw new NotImplementedException();
         }
 
 
