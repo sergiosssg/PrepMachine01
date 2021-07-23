@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace PrepMachine01
+namespace PM
 {
     /// <summary>
     /// Interaction logic for App.xaml

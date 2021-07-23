@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PrepMachine01
+namespace PM
 {
     public interface IStorage
     {
