@@ -20,7 +20,7 @@ namespace PM
             }
             RegisterRecord comparedObject = (RegisterRecord)obj;
             if( !this.OperatorName.Equals( comparedObject.OperatorName) || this.TypeOfData != comparedObject.TypeOfData ||
-                this.NumberOfPass != comparedObject.NumberOfPass)
+                this.PassNumbes != comparedObject.PassNumbes)
             {
                 return false;
             }
@@ -76,7 +76,7 @@ namespace PM
             get; set;
         }
 
-        public int NumberOfPass
+        public int PassNumbes
         {
             get; set;
         }
@@ -107,6 +107,10 @@ namespace PM
         {
             get; set;
         }
+
+
+
+
 
         public OperandType TypeOfData
         {
