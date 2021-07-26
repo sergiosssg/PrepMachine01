@@ -3,27 +3,9 @@
 namespace PM
 {
 
-    public interface IRecord
+    public interface IRecord : IKODEItem, IOperandTypeItem, IRawdataItem, INettodataItem
     {
-        public long KODE
-        {
-            get; set;
-        }
 
-        public OperandType TypeOfData
-        {
-            get; set;
-        }
-
-        public byte[] RawData
-        {
-            get; set;
-        }
-
-        public string NettoData
-        {
-            get; set;
-        }
     }
 
 
