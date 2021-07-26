@@ -2,6 +2,37 @@
 
 namespace PM
 {
+
+    public interface IRecord
+    {
+
+        public long KODE
+        {
+            get; set;
+        }
+
+
+
+        public OperandType TypeOfData
+        {
+            get; set;
+        }
+
+
+        public byte[] RawData
+        {
+            get; set;
+        }
+
+        public string NettoData
+        {
+            get; set;
+        }
+
+
+    }
+
+
     public class RegisterRecord
     {
 
