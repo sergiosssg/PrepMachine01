@@ -30,13 +30,13 @@ namespace PM
             {
                 return false;
             }
-            if( this.NumberOfStringInSourceFileOfInputData != comparedObject.NumberOfStringInSourceFileOfInputData &&
-                this.NumberOfColumnInSourceFileOfInputData != comparedObject.NumberOfColumnInSourceFileOfInputData)
+            if( this.RowNumber != comparedObject.RowNumber &&
+                this.ColumnNumber != comparedObject.ColumnNumber)
             {
                 return false;
             }
-            if( this.NameOfColumnInSourceFileOfInputData != string.Empty && comparedObject.NameOfColumnInSourceFileOfInputData != string.Empty &&
-                !this.NameOfColumnInSourceFileOfInputData.Equals( comparedObject.NameOfColumnInSourceFileOfInputData))
+            if( this.ColumnName != string.Empty && comparedObject.ColumnName != string.Empty &&
+                !this.ColumnName.Equals( comparedObject.ColumnName))
             {
                 return false;
             }
@@ -91,16 +91,19 @@ namespace PM
             get; set;
         }
 
-        public long NumberOfStringInSourceFileOfInputData
+        public long RowNumber
         {
             get; set;
         }
 
-        public int NumberOfColumnInSourceFileOfInputData
+        // NumberOfColumnInSourceFileOfInputData
+        public int ColumnNumber
         {
             get; set;
         }
-        public string NameOfColumnInSourceFileOfInputData
+
+        // NameOfColumnInSourceFileOfInputData
+        public string ColumnName
         {
             get; set;
         }
