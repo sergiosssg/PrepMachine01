@@ -6,18 +6,21 @@ namespace PM
 {
     public class Register : IStorage
     {
-        private Dictionary<long, RegisterRecord> _records;
+        private Dictionary<long, IRecord> _records;
 
 
         public Register()
         {
-            _records = new Dictionary<long, RegisterRecord>();
+            _records = new Dictionary<long, IRecord>();
         }
 
 
 
-        public bool addRecord()
+        public bool addRecord(IRecord record)
         {
+            long kodOfRecord = record.KODE;
+
+            _records.Add(kodOfRecord, record);
 
             return true;
         }
