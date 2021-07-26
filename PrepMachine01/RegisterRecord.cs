@@ -54,7 +54,7 @@ namespace PM
 
 
         /**
-         *  unique provided by date estamp and MAC addres then ...
+         *  unique provided by date estamp and MAC addres then bited shifted to left for eight bit and then accumulated here
          * 
          */
         public long KODE
