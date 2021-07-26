@@ -5,19 +5,15 @@ namespace PM
 
     public interface IRecord
     {
-
         public long KODE
         {
             get; set;
         }
 
-
-
         public OperandType TypeOfData
         {
             get; set;
         }
-
 
         public byte[] RawData
         {
@@ -28,8 +24,6 @@ namespace PM
         {
             get; set;
         }
-
-
     }
 
 
