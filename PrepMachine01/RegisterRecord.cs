@@ -26,7 +26,7 @@ namespace PM
             }
             if( this.FileNameTemplate != string.Empty && comparedObject.FileNameTemplate != string.Empty &&
                 !this.FileNameTemplate.Equals( comparedObject.FileNameTemplate) &&
-                this.NumberInFilesChain != comparedObject.NumberInFilesChain)
+                this.OrderNumberInChain != comparedObject.OrderNumberInChain)
             {
                 return false;
             }
@@ -86,7 +86,7 @@ namespace PM
             get; set;
         }
 
-        public int NumberInFilesChain
+        public int OrderNumberInChain
         {
             get; set;
         }
