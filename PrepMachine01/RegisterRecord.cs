@@ -9,7 +9,7 @@ namespace PM
     }
 
 
-    public class RegisterRecord : IRecord
+    public class RegisterRecord : IRecord, ITableIndicators
     {
 
         public override bool Equals(object obj)
