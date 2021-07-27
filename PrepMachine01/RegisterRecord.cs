@@ -9,7 +9,7 @@ namespace PM
     }
 
 
-    public class RegisterRecord : IRecord, ITableIndicators
+    public class RegisterRecord : IRecord, ITableIndicators, ISourceFilesChainsItem
     {
 
         public override bool Equals(object obj)
