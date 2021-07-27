@@ -24,9 +24,9 @@ namespace PM
             {
                 return false;
             }
-            if( this.TemplateNameOfFilesChainOfInputData != string.Empty && comparedObject.TemplateNameOfFilesChainOfInputData != string.Empty &&
-                !this.TemplateNameOfFilesChainOfInputData.Equals( comparedObject.TemplateNameOfFilesChainOfInputData) &&
-                this.NumberOfFileInFilesChainOfInputData != comparedObject.NumberOfFileInFilesChainOfInputData)
+            if( this.FileNameTemplate != string.Empty && comparedObject.FileNameTemplate != string.Empty &&
+                !this.FileNameTemplate.Equals( comparedObject.FileNameTemplate) &&
+                this.NumberInFilesChain != comparedObject.NumberInFilesChain)
             {
                 return false;
             }
@@ -81,12 +81,12 @@ namespace PM
             get; set;
         }
 
-        public string TemplateNameOfFilesChainOfInputData
+        public string FileNameTemplate
         {
             get; set;
         }
 
-        public int NumberOfFileInFilesChainOfInputData
+        public int NumberInFilesChain
         {
             get; set;
         }
