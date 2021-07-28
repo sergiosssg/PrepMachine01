@@ -6,12 +6,15 @@ namespace PM
 {
     public class BlackBoard
     {
-        private IDictionary<bool, LabelOfProcessing> labelsSortedByAsProcessed;
+        private IDictionary<bool, LabelOfProcessing> _labelsSortedByAsProcessed;
+        private ISet<LabelOfProcessing> _setOfLabels;
 
 
         public BlackBoard()
         {
-            labelsSortedByAsProcessed =  new Dictionary<bool, LabelOfProcessing>();
+            _labelsSortedByAsProcessed =  new Dictionary<bool, LabelOfProcessing>();
+            _setOfLabels = new HashSet<LabelOfProcessing>();
+
         }
 
 
