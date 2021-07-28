@@ -14,13 +14,15 @@ namespace PM
         {
             _labelsSortedByAsProcessed =  new Dictionary<bool, LabelOfProcessing>();
             _setOfLabels = new HashSet<LabelOfProcessing>();
-
         }
-
 
         public void addLabel(LabelOfProcessing newLabelOfProcessing)
         {
-
+            if (newLabelOfProcessing != null)
+            {
+                _labelsSortedByAsProcessed.Add(false, newLabelOfProcessing);
+                _setOfLabels.Add(newLabelOfProcessing);
+            }
         }
 
         public bool containsLabel(LabelOfProcessing labelOfProcessing)
