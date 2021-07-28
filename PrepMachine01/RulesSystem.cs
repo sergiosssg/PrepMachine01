@@ -306,6 +306,7 @@ namespace PM
             _rawBoolean = false;
             _logicCombo.booleanLogic = false;
             _logicCombo.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
+            _operandComparisonType = OperandType.INT;
         }
 
         public LabelOfProcessing(LabelType labelType) : this() => ThisLabelType = labelType;
@@ -313,6 +314,66 @@ namespace PM
         public bool AmIActive   {  set { _iAmActive = value;  }  get => _iAmActive;  }
 
 
+        public OperandType ComparisonOperandType
+        {
+            get
+            {
+                return _operandComparisonType;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if( ( obj == null  ) || (obj.GetType() != this.GetType()))
+            {
+                return false;
+            }
+
+            LabelOfProcessing objLabelOfProcessing = (LabelOfProcessing)obj;
+
+            if (this._operandComparisonType != objLabelOfProcessing._operandComparisonType)
+            {
+                return false;
+            }
+
+            if(( this._operandComparisonType == OperandType.BOOL ) && ( this._rawBoolean == objLabelOfProcessing._rawBoolean ))
+            {
+                return true;
+            }
+            else if((this._operandComparisonType == OperandType.COMBYLOGIC) && 
+                (this._logicCombo.booleanLogic == objLabelOfProcessing._logicCombo.booleanLogic) &&
+                (this._logicCombo.fuzzyLogic == objLabelOfProcessing._logicCombo.fuzzyLogic))
+            {
+                return true;
+            }else if((this._operandComparisonType == OperandType.STRING) && (this._rawString.Equals(objLabelOfProcessing._rawString)))
+            {
+                return true;
+            }else if((this._operandComparisonType == OperandType.INT) && (this._rawInt == objLabelOfProcessing._rawInt))
+            {
+                return true;
+            }else if((this._operandComparisonType == OperandType.DATE) && (this._rawDateTime == objLabelOfProcessing._rawDateTime))
+            {
+                return true;
+            }else if((this._operandComparisonType == OperandType.DECIMAL) && (this._rawDecimal == objLabelOfProcessing._rawDecimal))
+            {
+                return true;
+            }else if((this._operandComparisonType == OperandType.FUZZY) && (this._logicCombo.fuzzyLogic == objLabelOfProcessing._logicCombo.fuzzyLogic))
+            {
+                return true;
+            }else if((this._operandComparisonType == OperandType.LONG) && (this._rawLong == objLabelOfProcessing._rawLong))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+
+
+            return 0;
+        }
 
 
         public string ValueAsString 
