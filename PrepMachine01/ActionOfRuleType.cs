@@ -1,6 +1,6 @@
 ﻿namespace PM
 {
-    public enum ActionRuleType
+    public enum ActionOfRuleType
     {
         EMPTY_ACTION,
         LABEL_ACTION,
