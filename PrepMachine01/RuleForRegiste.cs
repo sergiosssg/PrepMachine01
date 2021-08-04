@@ -2,7 +2,7 @@
 {
     public class RuleForRegister : RuleAbstract
     {
-        public override IActionRule[] GetActionsOfRule()
+        public override IActionOfRule[] GetActionsOfRule()
         {
             throw new System.NotImplementedException();
         }

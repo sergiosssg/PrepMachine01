@@ -6,7 +6,7 @@
 
         public abstract bool IsRuleActive();
 
-        public abstract IActionRule[] GetActionsOfRule();
+        public abstract IActionOfRule[] GetActionsOfRule();
 
 
         /// <summary>

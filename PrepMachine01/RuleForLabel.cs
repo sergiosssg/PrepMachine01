@@ -25,7 +25,7 @@ namespace PM
         /////////////////////
 
 
-        public override IActionRule[] GetActionsOfRule()
+        public override IActionOfRule[] GetActionsOfRule()
         {
             throw new NotImplementedException();
         }

@@ -4,7 +4,7 @@
     {
         public IConditionRule[] GetConditionsOfRule();
         public bool IsRuleActive();
-        public IActionRule[] GetActionsOfRule();
+        public IActionOfRule[] GetActionsOfRule();
     }
 }
 
