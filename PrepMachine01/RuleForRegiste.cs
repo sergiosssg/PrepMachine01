@@ -2,16 +2,19 @@
 {
     public class RuleForRegister : RuleAbstract
     {
-        public override bool doAction()
+        public override IActionRule[] GetActionsOfRule()
         {
-            bool retResult = false;
-
-            return retResult;
+            throw new System.NotImplementedException();
         }
 
-        override public ActionRuleType getActionRuleType()
+        public override IConditionRule[] GetConditionsOfRule()
         {
-            return ActionRuleType.REGISTR_ACTION;
+            throw new System.NotImplementedException();
+        }
+
+        public override bool IsRuleActive()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

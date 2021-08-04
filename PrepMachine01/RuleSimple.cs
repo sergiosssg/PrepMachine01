@@ -22,21 +22,25 @@ namespace PM
             set => _action += value;
         }
 
-
-        override public bool doAction()
+        public override IConditionRule[] GetConditionsOfRule()
         {
-            bool retResult = false;
-            if (IAmValidAction) { _action(); retResult = true; }
-
-
-            base._isAccomplished = true;
-            return retResult;
+            throw new NotImplementedException();
         }
 
-        public override ActionRuleType getActionRuleType()
+        public override bool IsRuleActive()
         {
-            return ActionRuleType.EMPTY_ACTION;
+            throw new NotImplementedException();
         }
+
+        public override IActionRule[] GetActionsOfRule()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+
     }
 }
 

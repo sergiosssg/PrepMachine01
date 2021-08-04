@@ -20,20 +20,20 @@ namespace PM
             set => _actionAddingLabel += value;
         }
 
-        public override bool doAction()
+        /////////////////////
+        ///
+        /////////////////////
+
+
+        public override IActionRule[] GetActionsOfRule()
         {
-            bool retResult = false;
-            if (_actionAddingLabel != null) { _actionAddingLabel(_lresultLabelOfProcessings); retResult = true; }
-
-
-            return retResult;
+            throw new NotImplementedException();
         }
 
-        override public ActionRuleType getActionRuleType()
+        public override IConditionRule[] GetConditionsOfRule()
         {
-            return ActionRuleType.LABEL_ACTION;
+            throw new NotImplementedException();
         }
-
 
         public bool getLabelsResult(out List<LabelOfProcessing> lsLabelOfProcessings)
         {
@@ -43,7 +43,13 @@ namespace PM
             return _isAccomplished;
         }
 
+        public override bool IsRuleActive()
+        {
+            throw new NotImplementedException();
+        }
+
         new public void reset()  {  base.reset(); _lresultLabelOfProcessings.Clear(); }
+
     }
 }
 
