@@ -1,6 +1,6 @@
 ﻿namespace PM
 {
-    public abstract class ActionAbstract : IActionRule
+    public abstract class RuleAbstract : IActionRule
     {
         protected bool _isAccomplished;
 
