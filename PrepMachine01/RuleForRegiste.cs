@@ -1,6 +1,6 @@
 ﻿namespace PM
 {
-    public class RegisterActionInRule : ActionAbstract, IActionRule
+    public class RuleForRegister : ActionAbstract, IActionRule
     {
         public override bool doAction()
         {

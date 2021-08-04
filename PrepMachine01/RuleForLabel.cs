@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace PM
 {
-    public class LabelActionInRule : ActionAbstract, IResultOfActionRuleForBlackBoard, IResultOfActionRule
+    public class RuleForLabel : ActionAbstract, IResultOfActionRuleForBlackBoard, IResultOfActionRule
     {
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
         private List<LabelOfProcessing> _lresultLabelOfProcessings;
 
-        public LabelActionInRule()
+        public RuleForLabel()
         {
             _actionAddingLabel = null;
             _lresultLabelOfProcessings = new List<LabelOfProcessing>();

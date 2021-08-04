@@ -2,14 +2,14 @@
 
 namespace PM
 {
-    public class SimpleActionInRule :  ActionAbstract, IActionRule, IResultOfActionRule
+    public class RuleSimple :  ActionAbstract, IActionRule, IResultOfActionRule
     {
         protected Action _action;
 
 
         public bool IAmValidAction => _action != null;
 
-        public SimpleActionInRule()
+        public RuleSimple()
         {
             _isAccomplished = false;
             _action = null;
