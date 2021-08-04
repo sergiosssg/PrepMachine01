@@ -2,7 +2,7 @@
 
 namespace PM
 {
-    public class RuleSimple :  ActionAbstract, IActionRule, IResultOfActionRule
+    public class RuleSimple :  ActionAbstract, IResultOfActionRule
     {
         protected Action _action;
 
