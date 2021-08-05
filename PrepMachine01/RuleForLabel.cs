@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PM
 {
-    public class RuleForLabel : RuleAbstract, IResultOfActionRuleForBlackBoard, IResultOfActionRule
+    public class RuleForLabel : RuleAbstract, IResultOfActionOfRuleForBlackBoard, IResultOfActionRule
     {
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
         private List<LabelOfProcessing> _lresultLabelOfProcessings;
@@ -35,7 +35,7 @@ namespace PM
             throw new NotImplementedException();
         }
 
-        public bool getLabelsResult(out List<LabelOfProcessing> lsLabelOfProcessings)
+        public bool GetLabelsOfResult(out List<LabelOfProcessing> lsLabelOfProcessings)
         {
 
 
