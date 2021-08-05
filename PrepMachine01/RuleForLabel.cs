@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PM
 {
-    public class RuleForLabel : RuleAbstract, IResultOfActionOfRuleForBlackBoard, IResultOfActionRule
+    public class RuleForLabel : RuleAbstract, IResultOfActionOfRuleForBlackBoard, IResultOfOfActionRule
     {
         private Func<List<LabelOfProcessing>, List<LabelOfProcessing>> _actionAddingLabel;
         private List<LabelOfProcessing> _lresultLabelOfProcessings;

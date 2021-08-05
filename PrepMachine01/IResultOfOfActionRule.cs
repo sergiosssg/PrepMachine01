@@ -1,6 +1,6 @@
 ﻿namespace PM
 {
-    public interface IResultOfActionRule
+    public interface IResultOfOfActionRule
     {
         public void reset();
     }
