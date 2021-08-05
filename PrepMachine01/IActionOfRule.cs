@@ -4,7 +4,7 @@
     {
         public bool DoAction();
 
-        public ActionOfRuleType GetActionRuleType();
+        public ActionOfRuleType GetActionOfRuleType();
     }
 }
 
