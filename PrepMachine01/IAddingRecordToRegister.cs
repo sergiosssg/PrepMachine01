@@ -6,6 +6,6 @@ namespace PM
 {
     public interface IAddingRecordToRegister
     {
-        bool AddRecordToRegister(Register register, IRecord record);
+        public bool AddRecordToRegister(Register register, IRecord record);
     }
 }
