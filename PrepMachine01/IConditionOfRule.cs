@@ -1,6 +1,6 @@
 ﻿namespace PM
 {
-    public interface IConditionRule
+    public interface IConditionOfRule
     {
         public ComparisonOperatorType getComparisonOperatorType();
         public OperandType getOperandType();

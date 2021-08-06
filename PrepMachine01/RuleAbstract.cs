@@ -2,7 +2,7 @@
 {
     public abstract class RuleAbstract : IRule
     {
-        public abstract IConditionRule[] GetConditionsOfRule();
+        public abstract IConditionOfRule[] GetConditionsOfRule();
 
         public abstract bool IsRuleActive();
 

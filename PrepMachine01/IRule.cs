@@ -2,7 +2,7 @@
 {
     public interface IRule
     {
-        public IConditionRule[] GetConditionsOfRule();
+        public IConditionOfRule[] GetConditionsOfRule();
         public bool IsRuleActive();
         public IActionOfRule[] GetActionsOfRule();
     }
