@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public abstract class ActionOfRuleAbstract : IActionOfRule
+    public abstract class ActionOfRuleAbstract : IActionOfRule,  IActionOfRuleTypeItem
     {
         public abstract bool DoAction();
 
