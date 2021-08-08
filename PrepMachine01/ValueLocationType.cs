@@ -7,6 +7,7 @@ namespace PM
     public enum ValueLocationType
     {
         BLACKBOARD,
-        REGISTER
+        REGISTER_CHAIN_OF_STRINGS,
+        REGISTER_TABLE_OF_VALUES
     }
 }
