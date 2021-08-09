@@ -2,7 +2,7 @@
 
 namespace PM
 {
-    public class LabelOfProcessing
+    public class LabelOfProcessing : IValueOfProcessing
     {
         private bool _iAmActive;
 
@@ -180,6 +180,10 @@ namespace PM
             }
             get  =>  _rawBoolean;
         }
+
+        public string NettoData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string OperatorName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int PassNumbes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
 
