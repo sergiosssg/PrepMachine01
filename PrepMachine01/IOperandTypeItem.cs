@@ -6,7 +6,7 @@ namespace PM
 {
     public interface IOperandTypeItem
     {
-        public OperandType TypeOfData
+        public OperandType ComparisonOperandType
         {
             get; set;
         }

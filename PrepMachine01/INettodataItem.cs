@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public interface INettodataItem
+    public interface INettoDataItem
     {
         public string NettoData
         {

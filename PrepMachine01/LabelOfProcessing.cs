@@ -46,6 +46,10 @@ namespace PM
             {
                 return _operandComparisonType;
             }
+            set
+            {
+                _operandComparisonType = value;
+            }
         }
 
         public override bool Equals(object obj)

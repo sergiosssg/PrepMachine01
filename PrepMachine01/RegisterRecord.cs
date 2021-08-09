@@ -2,13 +2,6 @@
 
 namespace PM
 {
-
-    public interface IRecord : IKODEItem, IOperandTypeItem, IRawdataItem, INettodataItem
-    {
-
-    }
-
-
     public class RegisterRecord : IRecord, ITableIndicators, ISourceFilesChainsItem, IOperatorItem, IProcessingPassItem
     {
 
@@ -19,7 +12,7 @@ namespace PM
                 return false;
             }
             RegisterRecord comparedObject = (RegisterRecord)obj;
-            if( !this.OperatorName.Equals( comparedObject.OperatorName) || this.TypeOfData != comparedObject.TypeOfData ||
+            if( !this.OperatorName.Equals( comparedObject.OperatorName) || this.ComparisonOperandType != comparedObject.ComparisonOperandType ||
                 this.PassNumbes != comparedObject.PassNumbes)
             {
                 return false;
@@ -54,7 +47,7 @@ namespace PM
         public override int GetHashCode()
         {
 
-            this.TypeOfData.GetHashCode();
+            this.ComparisonOperandType.GetHashCode();
 
             return 0;
         }
@@ -112,7 +105,7 @@ namespace PM
 
 
 
-        public OperandType TypeOfData
+        public OperandType ComparisonOperandType
         {
             get; set;
         }

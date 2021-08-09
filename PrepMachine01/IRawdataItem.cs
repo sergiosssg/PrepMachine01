@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public interface IRawdataItem
+    public interface IRawDataItem
     {
         public byte[] RawData
         {
