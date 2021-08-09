@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public class OperandValueOfProcessing : IValueOfProcessing
+    public class OperandValueOfProcessing : IValueOfProcessing, IValueLocationTypeItem
     {
         public OperandType ComparisonOperandType 
         { 
@@ -22,6 +22,11 @@ namespace PM
             set => throw new NotImplementedException(); 
         }
         public int PassNumbes 
+        { 
+            get => throw new NotImplementedException(); 
+            set => throw new NotImplementedException(); 
+        }
+        public ValueLocationType ValueLocationTypeProperty 
         { 
             get => throw new NotImplementedException(); 
             set => throw new NotImplementedException(); 
