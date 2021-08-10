@@ -2,7 +2,7 @@
 
 namespace PM
 {
-    public class RegisterRecord : IRecord, ITableIndicators, ISourceFilesChainsItem, IOperatorItem, IProcessingPassItem
+    public class RegisterRecord : IRecord, IValueOfProcessing, ITableIndicators, ISourceFilesChainsItem, IOperatorItem, IProcessingPassItem
     {
 
         public override bool Equals(object obj)
