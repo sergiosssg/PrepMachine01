@@ -6,6 +6,19 @@ namespace PM
 {
     public class FuzzyValue : IFuzzyValue
     {
+        public FuzzyValue()
+        {
+
+        }
+        public FuzzyValue( bool boolVal)
+        {
+
+        }
+        public FuzzyValue( int intVal)
+        {
+
+        }
+
         public FuzzyMeasure FuzzyProperty 
         { 
             get => throw new NotImplementedException(); 
@@ -23,5 +36,17 @@ namespace PM
         }
 
         public bool TrueFuzzy => throw new NotImplementedException();
+
+
+        public override bool Equals( object obj) 
+        {
+
+            return false;
+        }
+        public override int GetHashCode()
+        {
+
+            return 0;
+        }
     }
 }
