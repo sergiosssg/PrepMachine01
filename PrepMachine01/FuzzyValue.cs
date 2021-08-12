@@ -6,13 +6,22 @@ namespace PM
 {
     public class FuzzyValue : IFuzzyValue
     {
+        private FuzzyMeasure _fuzzyValue;
+
         public FuzzyValue()
         {
-
+            _fuzzyValue = FuzzyMeasure.ZERO;
         }
         public FuzzyValue( bool boolVal)
         {
-
+            if (boolVal)
+            {
+                _fuzzyValue = FuzzyMeasure.ABSOLUTE;
+            }
+            else
+            {
+                _fuzzyValue = FuzzyMeasure.ZERO;
+            }
         }
         public FuzzyValue( int intVal)
         {
@@ -21,8 +30,8 @@ namespace PM
 
         public FuzzyMeasure FuzzyProperty 
         { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); 
+            get => _fuzzyValue; 
+            set => _fuzzyValue = value; 
         }
         public int FuzzyAsIntegerProperty 
         { 
