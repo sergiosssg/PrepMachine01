@@ -11,7 +11,7 @@ namespace PM
         private DateTime _rawDateTime;
         private decimal _rawDecimal;
         private bool _rawBoolean;
-        private LogicCombo _logicCombo;
+        private LogicCombo _fuzzyLogic;
 
         private OperandType _operandComparisonType;
 
@@ -78,13 +78,13 @@ namespace PM
 
                 if (value)
                 {
-                    _logicCombo.fuzzyLogic = FuzzyMeasure.DEFINITE_TRUE;
+                    _fuzzyLogic.fuzzyLogic = FuzzyMeasure.DEFINITE_TRUE;
                 }
                 else
                 {
-                    _logicCombo.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
+                    _fuzzyLogic.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
                 }
-                _logicCombo.booleanLogic = value;
+                _fuzzyLogic.booleanLogic = value;
 
             }
             get => _rawBoolean;
