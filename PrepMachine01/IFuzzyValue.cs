@@ -17,5 +17,16 @@ namespace PM
             get;
             set;
         }
+
+        public bool FuzzyAsBoolean
+        {
+            get;
+            set;
+        }
+
+        public bool TrueFuzzy
+        {
+            get;
+        }
     }
 }

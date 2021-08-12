@@ -16,5 +16,12 @@ namespace PM
             get => throw new NotImplementedException(); 
             set => throw new NotImplementedException(); 
         }
+        public bool FuzzyAsBoolean 
+        { 
+            get => throw new NotImplementedException(); 
+            set => throw new NotImplementedException(); 
+        }
+
+        public bool TrueFuzzy => throw new NotImplementedException();
     }
 }
