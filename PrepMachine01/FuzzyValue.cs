@@ -37,6 +37,20 @@ namespace PM
 
         public bool TrueFuzzy => throw new NotImplementedException();
 
+        public bool ANDoperation(bool operand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IFuzzyValue Conjunction(IFuzzyValue operand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IFuzzyValue Disjunction(IFuzzyValue operand)
+        {
+            throw new NotImplementedException();
+        }
 
         public override bool Equals( object obj) 
         {
@@ -47,6 +61,16 @@ namespace PM
         {
 
             return 0;
+        }
+
+        public bool NOToperation()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ORoperation(bool operand)
+        {
+            throw new NotImplementedException();
         }
     }
 }
