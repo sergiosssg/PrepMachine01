@@ -11,5 +11,11 @@ namespace PM
             get;
             set;
         }
+
+        public int FuzzyAsIntegerProperty
+        {
+            get;
+            set;
+        }
     }
 }
