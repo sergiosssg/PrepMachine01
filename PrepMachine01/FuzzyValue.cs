@@ -12,7 +12,7 @@ namespace PM
         {
             _fuzzyValue = FuzzyMeasure.ZERO;
         }
-        public FuzzyValue( bool boolVal)
+        public FuzzyValue(bool boolVal)
         {
             if (boolVal)
             {
@@ -23,28 +23,41 @@ namespace PM
                 _fuzzyValue = FuzzyMeasure.ZERO;
             }
         }
-        public FuzzyValue( int intVal)
+        public FuzzyValue(int intVal)
         {
 
         }
 
-        public FuzzyMeasure FuzzyProperty 
-        { 
-            get => _fuzzyValue; 
-            set => _fuzzyValue = value; 
+        public FuzzyMeasure FuzzyProperty
+        {
+            get => _fuzzyValue;
+            set => _fuzzyValue = value;
         }
-        public int FuzzyAsIntegerProperty 
-        { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); 
+        public int FuzzyAsIntegerProperty
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
         }
-        public bool FuzzyAsBoolean 
-        { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); 
+        public bool FuzzyAsBoolean
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
         }
 
-        public bool TrueFuzzy => throw new NotImplementedException();
+        public bool TrueFuzzy 
+        {
+            get
+            {
+                if(_fuzzyValue == FuzzyMeasure.ZERO || _fuzzyValue == FuzzyMeasure.DEFINITE_FALSE || _fuzzyValue == FuzzyMeasure.ABSOLUTE || _fuzzyValue == FuzzyMeasure.DEFINITE_TRUE)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         public bool ANDoperation(bool operand)
         {
