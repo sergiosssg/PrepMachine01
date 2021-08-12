@@ -27,7 +27,6 @@ namespace PM
         {
 
         }
-
         public FuzzyMeasure FuzzyProperty
         {
             get => _fuzzyValue;
@@ -40,10 +39,17 @@ namespace PM
         }
         public bool FuzzyAsBoolean
         {
-            get => throw new NotImplementedException();
-            set => throw new NotImplementedException();
+            set {
+                  if (value)
+                  {
+                     _fuzzyValue = FuzzyMeasure.ABSOLUTE;
+                  }
+                  else
+                  {
+                     _fuzzyValue = FuzzyMeasure.ZERO;
+                  }                
+                }
         }
-
         public bool TrueFuzzy 
         {
             get

@@ -20,7 +20,6 @@ namespace PM
 
         public bool FuzzyAsBoolean
         {
-            get;
             set;
         }
 
