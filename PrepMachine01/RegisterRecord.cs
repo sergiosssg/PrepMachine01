@@ -11,7 +11,7 @@ namespace PM
         private DateTime _rawDateTime;
         private decimal _rawDecimal;
         private bool _rawBoolean;
-        private LogicCombo _fuzzyLogic;
+        private IFuzzyValue _fuzzyLogic;
 
         private OperandType _operandComparisonType;
 
@@ -76,16 +76,7 @@ namespace PM
                 _operandComparisonType = OperandType.BOOL;
                 _rawBoolean = value;
 
-                if (value)
-                {
-                    _fuzzyLogic.fuzzyLogic = FuzzyMeasure.DEFINITE_TRUE;
-                }
-                else
-                {
-                    _fuzzyLogic.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
-                }
-                _fuzzyLogic.booleanLogic = value;
-
+                _fuzzyLogic = new FuzzyValue(value);
             }
             get => _rawBoolean;
         }

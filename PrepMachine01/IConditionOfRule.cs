@@ -12,7 +12,7 @@
             get;
             set;
         }
-        public LogicCombo LogicComboProperty
+        public IFuzzyValue LogicComboProperty
         {
             get;
             set;

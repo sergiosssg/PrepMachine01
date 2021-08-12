@@ -12,7 +12,7 @@ namespace PM
         private DateTime _rawDateTime;
         private decimal _rawDecimal;
         private bool _rawBoolean;
-        private LogicCombo _fuzzyLogic;
+        private IFuzzyValue _fuzzyLogic;
 
         private LabelType _labelType;
 
@@ -30,8 +30,7 @@ namespace PM
             _rawDateTime = new DateTime(0);
             _rawDecimal = 0;
             _rawBoolean = false;
-            _fuzzyLogic.booleanLogic = false;
-            _fuzzyLogic.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
+            _fuzzyLogic = new FuzzyValue();
             _operandComparisonType = OperandType.INT;
         }
 
@@ -71,8 +70,7 @@ namespace PM
                 return true;
             }
             else if((this._operandComparisonType == OperandType.COMBYLOGIC) && 
-                (this._fuzzyLogic.booleanLogic == objLabelOfProcessing._fuzzyLogic.booleanLogic) &&
-                (this._fuzzyLogic.fuzzyLogic == objLabelOfProcessing._fuzzyLogic.fuzzyLogic))
+                (this._fuzzyLogic == objLabelOfProcessing._fuzzyLogic))
             {
                 return true;
             }else if((this._operandComparisonType == OperandType.STRING) && (this._rawString.Equals(objLabelOfProcessing._rawString)))
@@ -87,7 +85,7 @@ namespace PM
             }else if((this._operandComparisonType == OperandType.DECIMAL) && (this._rawDecimal == objLabelOfProcessing._rawDecimal))
             {
                 return true;
-            }else if((this._operandComparisonType == OperandType.FUZZY) && (this._fuzzyLogic.fuzzyLogic == objLabelOfProcessing._fuzzyLogic.fuzzyLogic))
+            }else if((this._operandComparisonType == OperandType.FUZZY) && (this._fuzzyLogic == objLabelOfProcessing._fuzzyLogic))
             {
                 return true;
             }else if((this._operandComparisonType == OperandType.LONG) && (this._rawLong == objLabelOfProcessing._rawLong))
@@ -167,16 +165,7 @@ namespace PM
                 _operandComparisonType = OperandType.BOOL;
                 _rawBoolean = value;
 
-                if (value)
-                {
-                    _fuzzyLogic.fuzzyLogic = FuzzyMeasure.DEFINITE_TRUE;
-                }
-                else
-                {
-                    _fuzzyLogic.fuzzyLogic = FuzzyMeasure.DEFINITE_FALSE;
-                }
-                _fuzzyLogic.booleanLogic = value;
-
+                _fuzzyLogic = new FuzzyValue(value);
             }
             get  =>  _rawBoolean;
         }
