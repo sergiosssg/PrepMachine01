@@ -27,12 +27,13 @@
             get;
             set;
         }
-        public System.Predicate<System.Tuple<ValueLocationType, IValueOfProcessing, IValueOfProcessing, IComparisonOfProcessing>> PredicateForComparision
+        public System.Predicate<System.Tuple<ValueLocationType, IValueOfProcessing, IValueOfProcessing, ComparisonOperatorType>> PredicateForComparision
         {
             get;
             set;
         }
 
+        public bool AccomplichCondition(ValueLocationType valueLocationType, IValueOfProcessing leftValue, IValueLocationTypeItem rightValue, ComparisonOperatorType comparisonOperatorType);
     }
 }
 
