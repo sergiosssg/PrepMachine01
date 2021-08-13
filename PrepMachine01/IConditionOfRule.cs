@@ -27,7 +27,7 @@
             get;
             set;
         }
-        public System.Predicate<System.Tuple<ValueLocationType, IValueOfProcessing, IValueOfProcessing>> PredicateForComparision
+        public System.Predicate<System.Tuple<ValueLocationType, IValueOfProcessing, IValueOfProcessing, IComparisonOfProcessing>> PredicateForComparision
         {
             get;
             set;
