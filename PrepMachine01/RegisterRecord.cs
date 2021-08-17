@@ -15,24 +15,27 @@ namespace PM
 
         private OperandType _operandComparisonType;
 
+        private string _nettoData;
+
         public string ValueAsString
         {
             set
             {
                 _operandComparisonType = OperandType.STRING;
-                _rawString = value;
+                _nettoData = _rawString = value;
             }
             get
             {
                 if (_operandComparisonType == OperandType.STRING) return _rawString;
-                return null;
+                return string.Empty;
             }
         }
         public long ValueAsLong
         {
             set
             {
-                _rawString = "" + value;
+                _rawString = string.Empty;
+                _nettoData = "" + value;
                 _operandComparisonType = OperandType.LONG;
                 _rawLong = value;
             }
@@ -42,7 +45,8 @@ namespace PM
         {
             set
             {
-                _rawString = "" + value;
+                _rawString = string.Empty;
+                _nettoData = "" + value;
                 _operandComparisonType = OperandType.INT;
                 _rawInt = value;
             }
@@ -52,7 +56,8 @@ namespace PM
         {
             set
             {
-                _rawString = "" + value;
+                _rawString = string.Empty;
+                _nettoData = "" + value;
                 _operandComparisonType = OperandType.DATE;
                 _rawDateTime = value;
             }
@@ -62,7 +67,8 @@ namespace PM
         {
             set
             {
-                _rawString = "" + value;
+                _rawString = string.Empty;
+                _nettoData = "" + value;
                 _operandComparisonType = OperandType.DECIMAL;
                 _rawDecimal = value;
             }
@@ -72,7 +78,8 @@ namespace PM
         {
             set
             {
-                _rawString = "" + value;
+                _rawString = string.Empty;
+                _nettoData = "" + value;
                 _operandComparisonType = OperandType.BOOL;
                 _rawBoolean = value;
 
@@ -200,7 +207,7 @@ namespace PM
 
         public string NettoData
         {
-            get; set;
+            get => _nettoData;
         }
     }
 
