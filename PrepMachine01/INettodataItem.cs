@@ -8,7 +8,7 @@ namespace PM
     {
         public string NettoData
         {
-            get; set;
+            get;
         }
     }
 }
