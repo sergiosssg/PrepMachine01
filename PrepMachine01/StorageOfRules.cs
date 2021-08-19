@@ -42,7 +42,10 @@ namespace PM
 
         IEnumerator<IRule> IEnumerable<IRule>.GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (var oneRule in listOfRules)
+            {
+                yield return oneRule;
+            }
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
