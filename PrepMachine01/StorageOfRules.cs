@@ -6,9 +6,18 @@ namespace PM
 {
     public class StorageOfRules : IStorage, IEnumerable<IRule>
     {
+        private IList<IRule> listOfRules;
+
+
+        StorageOfRules()
+        {
+            listOfRules = new List<IRule>();
+        }
+
+
         public int Amount()
         {
-            throw new NotImplementedException();
+            return listOfRules.Count;
         }
 
         public bool Load(string whereFrom)
