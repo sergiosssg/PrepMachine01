@@ -50,7 +50,10 @@ namespace PM
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (var oneRule in listOfRules)
+            {
+                yield return oneRule;
+            }
         }
 
 
