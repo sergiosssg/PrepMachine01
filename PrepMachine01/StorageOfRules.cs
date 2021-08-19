@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public class StorageOfRules : IStorage
+    public class StorageOfRules : IStorage, IEnumerable<IRule>
     {
         public int Amount()
         {
@@ -30,5 +30,17 @@ namespace PM
         {
             throw new NotImplementedException();
         }
+
+        IEnumerator<IRule> IEnumerable<IRule>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }
