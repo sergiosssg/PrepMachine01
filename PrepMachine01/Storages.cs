@@ -6,9 +6,9 @@ namespace PM
 {
     public interface IStorage<T, S>
     {
-        public bool Store(string where);
+        public bool Store(S where);
 
-        public bool Load(string whereFrom);
+        public bool Load(S whereFrom);
 
 
         public bool Stored();
