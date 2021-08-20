@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public interface IStorage
+    public interface IStorage<T, S>
     {
         public bool Store(string where);
 

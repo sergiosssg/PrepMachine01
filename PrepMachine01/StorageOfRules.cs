@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public class StorageOfRules : IStorage, IEnumerable<IRule>
+    public class StorageOfRules : IStorage<IRule, String>, IEnumerable<IRule>
     {
         private IList<IRule> listOfRules;
 
