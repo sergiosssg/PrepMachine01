@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PM
 {
-    public class BlackBoard : IStorage<IValueOfProcessing, string>
+    public class BlackBoard : IDepo<IValueOfProcessing, string>
     {
         private IDictionary<bool, IValueOfProcessing> _labelsSortedByAsProcessed;
         private ISet<IValueOfProcessing> _setOfLabels;

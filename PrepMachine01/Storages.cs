@@ -9,7 +9,7 @@ namespace PM
      *   where  store  T data  in  S strorages
      *   
      */
-    public interface IStorage<T, S>
+    public interface IDepo<T, S>
     {
         public bool Store(S where);
 
