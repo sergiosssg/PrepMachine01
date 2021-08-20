@@ -4,19 +4,34 @@ using System.Text;
 
 namespace PM
 {
-    public class BlackBoard
+    public class BlackBoard 
     {
-        private IDictionary<bool, LabelOfProcessing> _labelsSortedByAsProcessed;
-        private ISet<LabelOfProcessing> _setOfLabels;
+        private IDictionary<bool, IValueOfProcessing> _labelsSortedByAsProcessed;
+        private ISet<IValueOfProcessing> _setOfLabels;
 
 
         public BlackBoard()
         {
-            _labelsSortedByAsProcessed =  new Dictionary<bool, LabelOfProcessing>();
-            _setOfLabels = new HashSet<LabelOfProcessing>();
+            _labelsSortedByAsProcessed =  new Dictionary<bool, IValueOfProcessing>();
+            _setOfLabels = new HashSet<IValueOfProcessing>();
         }
 
-        public void addLabel(LabelOfProcessing newLabelOfProcessing)
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="newLabelOfProcessing"></param>
+
+        public void addLabel(IValueOfProcessing newLabelOfProcessing)
         {
             if (newLabelOfProcessing != null)
             {
@@ -25,7 +40,7 @@ namespace PM
             }
         }
 
-        public bool containsLabel(LabelOfProcessing labelOfProcessing)
+        public bool containsLabel(IValueOfProcessing labelOfProcessing)
         {
             return false;
         }
