@@ -4,12 +4,22 @@ using System.Text;
 
 namespace PM
 {
+    /**
+     *   IStorage<T, S>
+     *   where  store  T data  in  S strorages
+     *   
+     */
     public interface IStorage<T, S>
     {
         public bool Store(S where);
 
         public bool Load(S whereFrom);
 
+        /**
+         *   returns  true  when tElement sucsessfully added,
+         *   false otherwise
+         */
+        public bool Add(T tElement);
 
         public bool Stored();
 

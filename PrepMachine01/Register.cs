@@ -14,7 +14,10 @@ namespace PM
             _records = new Dictionary<long, IRecord>();
         }
 
-
+        public bool Add(IRecord tElement)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool addRecord(IRecord record)
         {

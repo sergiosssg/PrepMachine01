@@ -14,6 +14,11 @@ namespace PM
             listOfRules = new List<IRule>();
         }
 
+        public bool Add(IRule tElement)
+        {
+            listOfRules.Add(tElement);
+            return true;
+        }
 
         public int Amount()
         {
