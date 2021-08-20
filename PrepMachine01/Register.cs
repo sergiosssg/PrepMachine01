@@ -28,6 +28,11 @@ namespace PM
             return true;
         }
 
+        public bool Contains(IRecord tElement)
+        {
+            return _records.ContainsValue(tElement);
+        }
+
         int IStorage<IRecord, String>.Amount()
         {
             throw new NotImplementedException();

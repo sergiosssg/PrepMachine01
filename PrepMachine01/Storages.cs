@@ -21,6 +21,8 @@ namespace PM
          */
         public bool Add(T tElement);
 
+        public bool Contains(T tElement);
+
         public bool Stored();
 
         public bool Loaded();

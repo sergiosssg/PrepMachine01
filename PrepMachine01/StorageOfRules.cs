@@ -25,6 +25,11 @@ namespace PM
             return listOfRules.Count;
         }
 
+        public bool Contains(IRule tElement)
+        {
+            return listOfRules.Contains(tElement);
+        }
+
         public bool Load(string whereFrom)
         {
             throw new NotImplementedException();
