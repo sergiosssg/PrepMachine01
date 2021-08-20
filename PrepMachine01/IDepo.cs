@@ -11,7 +11,7 @@ namespace PM
      */
     public interface IDepo<T, S>
     {
-        public bool Store(S where);
+        public bool Store(S whereTo);
 
         public bool Load(S whereFrom);
 

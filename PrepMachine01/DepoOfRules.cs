@@ -4,12 +4,12 @@ using System.Text;
 
 namespace PM
 {
-    public class StorageOfRules : IDepo<IRule, String>, IEnumerable<IRule>
+    public class DepoOfRules : IDepo<IRule, String>, IEnumerable<IRule>
     {
         private IList<IRule> listOfRules;
 
 
-        StorageOfRules()
+        DepoOfRules()
         {
             listOfRules = new List<IRule>();
         }
