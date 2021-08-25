@@ -9,7 +9,8 @@
         STRING,
         BOOL,
         FUZZY,
-        COMBYLOGIC
+        COMBYLOGIC,
+        KODE
     }
 }
 
