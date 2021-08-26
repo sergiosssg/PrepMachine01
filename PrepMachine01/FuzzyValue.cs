@@ -4,8 +4,9 @@ using System.Text;
 
 namespace PM
 {
-    public class FuzzyValue : IFuzzyValue
+    public class FuzzyValue : IFuzzyValue, IValueItem<FuzzyMeasure>
     {
+        private bool _assignedCorrectValue;
         private FuzzyMeasure _fuzzyValue;
 
         public FuzzyValue()
@@ -65,10 +66,7 @@ namespace PM
             }
         }
 
-        public bool ANDoperation(bool operand)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public IFuzzyValue Conjunction(IFuzzyValue operand)
         {
@@ -91,12 +89,39 @@ namespace PM
             return 0;
         }
 
+        public OperandType getType()
+        {
+            return OperandType.FUZZY;
+        }
+
+        public FuzzyMeasure getValue()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool NOToperation()
         {
             throw new NotImplementedException();
         }
 
         public bool ORoperation(bool operand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ANDoperation(bool operand)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        public bool AssignedValue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool setValue(FuzzyMeasure val)
         {
             throw new NotImplementedException();
         }
