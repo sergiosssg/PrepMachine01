@@ -10,7 +10,8 @@
         BOOL,
         FUZZY,
         COMBYLOGIC,
-        KODE
+        KODETYPE,
+        ENUMTYPE
     }
 }
 
