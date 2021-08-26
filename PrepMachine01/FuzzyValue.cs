@@ -107,7 +107,7 @@ namespace PM
         {
             return _fuzzyValue;
         }
-
+         
         public bool NOToperation()
         {
             throw new NotImplementedException();
