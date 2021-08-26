@@ -11,10 +11,12 @@ namespace PM
 
         public FuzzyValue()
         {
+            _assignedCorrectValue = false;
             _fuzzyValue = FuzzyMeasure.ZERO;
         }
         public FuzzyValue(bool boolVal)
         {
+            _assignedCorrectValue = true;
             if (boolVal)
             {
                 _fuzzyValue = FuzzyMeasure.ABSOLUTE;
@@ -24,14 +26,20 @@ namespace PM
                 _fuzzyValue = FuzzyMeasure.ZERO;
             }
         }
+        public FuzzyValue(FuzzyMeasure fuzzyVal)
+        {
+            _assignedCorrectValue = true;
+            _fuzzyValue = fuzzyVal;
+        }
         public FuzzyValue(int intVal)
         {
-
+            _assignedCorrectValue = true;
+            //////   this constructor must be accomplished ...
         }
         public FuzzyMeasure FuzzyProperty
         {
             get => _fuzzyValue;
-            set => _fuzzyValue = value;
+            set  { _assignedCorrectValue = true; _fuzzyValue = value; }
         }
         public int FuzzyAsIntegerProperty
         {
@@ -41,7 +49,8 @@ namespace PM
         public bool FuzzyAsBoolean
         {
             set {
-                  if (value)
+                _assignedCorrectValue = true;
+                if (value)
                   {
                      _fuzzyValue = FuzzyMeasure.ABSOLUTE;
                   }
@@ -96,7 +105,7 @@ namespace PM
 
         public FuzzyMeasure getValue()
         {
-            throw new NotImplementedException();
+            return _fuzzyValue;
         }
 
         public bool NOToperation()
@@ -118,12 +127,14 @@ namespace PM
 
         public bool AssignedValue()
         {
-            throw new NotImplementedException();
+            return _assignedCorrectValue;
         }
 
         public bool setValue(FuzzyMeasure val)
         {
-            throw new NotImplementedException();
+            _fuzzyValue = val;
+            _assignedCorrectValue = true;
+            return _assignedCorrectValue;
         }
     }
 }
